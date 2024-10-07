@@ -20,6 +20,7 @@ app.use(cors({ origin: "*" }));
 
 // Test API route
 app.get('/hello', async (req, res) => {
+    console.log('ok'); // Ajout du message dans les logs
     return res.status(200).json({ message: "Hello!" });
 });
 
