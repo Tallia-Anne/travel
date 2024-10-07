@@ -6,11 +6,14 @@ const mongoose = require('mongoose');
 const connectDB = async () => {
   try {
     const mongoURI = process.env.MONGODB_URI;
+    if (!mongoURI) {
+      throw new Error("MongoDB URI is missing in the environment variables");
+    }
+
     await mongoose.connect(mongoURI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      serverSelectionTimeoutMS: 5000
+      serverSelectionTimeoutMS: 5000, // Temps avant que le serveur ne timeout si la connexion échoue
     });
+
     console.log('Successfully connected to MongoDB');
   } catch (err) {
     console.error('Error connecting to MongoDB:', err.message);
