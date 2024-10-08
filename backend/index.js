@@ -219,7 +219,7 @@ app.post('/image-upload', upload.single("image"), async (req, res) => {
             return res.status(400).json({ error: true, message: "No image uploaded" });
         }
 
-        const imageUrl = `https://travel-xh4w.onrender.com/uploads/${req.file.filename}`;
+        const imageUrl = `http://localhost:8000/uploads/${req.file.filename}`;
         res.status(201).json({ imageUrl });
     } catch (error) {
         res.status(500).json({ error: error.message });
