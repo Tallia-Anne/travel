@@ -1,4 +1,5 @@
 import { getInitials } from "../../utils/helper"
+import { Link } from 'react-router-dom';
 
 
 const ProfileInfo = ({ userInfo, onLogout }) => {  // Déstructuration des props
@@ -9,7 +10,9 @@ const ProfileInfo = ({ userInfo, onLogout }) => {  // Déstructuration des props
           {getInitials(userInfo.fullName || "")}  {/* Utilisation correcte de userInfo.fullName */}
         </div>
         <div>
+           <Link to="/viewuser">
           <p className="text-sm font-medium">{userInfo.fullName || ""}</p>  
+          </Link>
           <button className="text-sm text-slate-700 underline" onClick={onLogout}>
             Logout
           </button>
