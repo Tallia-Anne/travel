@@ -112,6 +112,11 @@ app.get('/get-user', authenticateToken, async (req, res) => {
     });
 });
 
+
+
+///////////////////////////////////////////// TRAVEL
+
+
 // Ajouter une histoire de voyage
 app.post('/add-travel-story', authenticateToken, async (req, res) => {
     const { title, story, visitedLocation, imageUrl, visitedDate } = req.body;

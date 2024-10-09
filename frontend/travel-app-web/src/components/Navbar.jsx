@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import LOGO from '../assets/images/world-wide-travel.svg';
 import ProfileInfo from './Cards/ProfileInfo';
 import SearchBar from './Input/SearchBar';
+import {FaHeart } from 'react-icons/fa6';
 
 const Navbar = ( {userInfo, searchQuery, setSearchQuery, onSearchNote, handleClearSearch} ) => {
   const isToken = localStorage.getItem('token');
@@ -38,8 +39,15 @@ const Navbar = ( {userInfo, searchQuery, setSearchQuery, onSearchNote, handleCle
       handleSearch={handleSearch}
       onClearSearch={onClearSearch}
       />
-        <ProfileInfo   userInfo={userInfo} onLogout={onLogout} /> </>
+      <div className='w-[140px] flex items-center justify-center gap-2'>
+       <FaHeart className='text-cyan-900'/>
+        <ProfileInfo   userInfo={userInfo} onLogout={onLogout} />
+      </div>
+         
+ </>
+      
       )}
+    
     </div>
   );
 };
